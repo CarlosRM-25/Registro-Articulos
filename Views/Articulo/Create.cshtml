@@ -1,0 +1,68 @@
+﻿@model GamingZoneApp.Models.Articulo
+
+<h2>Registrar Artículo</h2>
+
+<form asp-action="Create" method="post">
+    <div class="mb-2">
+        <label>Artículo</label>
+        <input asp-for="ArticuloNombre" class="form-control" />
+        <span asp-validation-for="ArticuloNombre" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Proveedor</label>
+        <input asp-for="Proveedor" class="form-control" />
+        <span asp-validation-for="Proveedor" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Categoría</label>
+        <select asp-for="Categoria" class="form-control">
+            <option value="">Seleccione...</option>
+            <option>Play Station</option>
+            <option>XBox</option>
+            <option>Nintendo</option>
+            <option>PC</option>
+            <option>Otro</option>
+        </select>
+        <span asp-validation-for="Categoria" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Año de lanzamiento</label>
+        <input asp-for="AnioLanzamiento" class="form-control" />
+        <span asp-validation-for="AnioLanzamiento" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Número de artículos</label>
+        <input asp-for="NumeroArticulos" class="form-control" />
+        <span asp-validation-for="NumeroArticulos" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Código Interno</label>
+        <input asp-for="CodigoInterno" class="form-control" />
+        <span asp-validation-for="CodigoInterno" class="text-danger"></span>
+    </div>
+
+    <div class="mb-2">
+        <label>Disponible</label>
+        <select asp-for="Disponible" class="form-control">
+            <option value="">Seleccione...</option>
+            <option value="true">Sí</option>
+            <option value="false">No</option>
+        </select>
+        <span asp-validation-for="Disponible" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

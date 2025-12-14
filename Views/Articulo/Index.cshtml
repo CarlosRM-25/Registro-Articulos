@@ -1,0 +1,41 @@
+﻿@model List<GamingZoneApp.Models.Articulo>
+
+<h2>Listado de Artículos</h2>
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Mensaje"]
+    </div>
+}
+
+<a class="btn btn-primary mb-3" asp-action="Create">Nuevo Artículo</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Artículo</th>
+            <th>Proveedor</th>
+            <th>Categoría</th>
+            <th>Año</th>
+            <th>Cantidad</th>
+            <th>Código</th>
+            <th>Disponible</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ArticuloNombre</td>
+                <td>@item.Proveedor</td>
+                <td>@item.Categoria</td>
+                <td>@item.AnioLanzamiento</td>
+                <td>@item.NumeroArticulos</td>
+                <td>@item.CodigoInterno</td>
+                <td>@(item.Disponible ? "Sí" : "No")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
